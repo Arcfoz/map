@@ -1,0 +1,170 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Geolocation API - BrowserLeaks</title>
+<meta name="description" content="HTML5 Geolocation API testing tool provides a detailed analysis of your geolocation and browser permissions. Based on the latitude-longitude and accuracy received from the browser, it shows the radius of your location on the interactive map.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://browserleaks.com/geo">
+<meta property="og:site_name" content="BrowserLeaks">
+<meta property="og:title" content="Geolocation API">
+<meta property="og:description" content="HTML5 Geolocation API testing tool provides a detailed analysis of your geolocation and browser permissions. Based on the latitude-longitude and accuracy received from the browser, it shows the radius of your location on the interactive map.">
+<link type="text/css" rel="stylesheet" media="all" href="css/style.css">
+<noscript><style type="text/css">.script{opacity:.5}.js-hide-block{display:block}</style></noscript>
+<script>(function(){var a='.doscript{display:block}.noscript{display:none!important}.script{opacity:1}',b=document.head||document.getElementsByTagName('head')[0],c=document.createElement('style');c.type='text/css';c.styleSheet?c.styleSheet.cssText=a:c.appendChild(document.createTextNode(a));b.appendChild(c)})()</script>
+<script src="js/default.js"></script>
+<link rel="icon" sizes="32x32" href="images/favicon.ico">
+<link rel="icon" sizes="196x196" href="images/icon-196x196.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+<link rel="manifest" href="https://browserleaks.com/manifest.json?v=59281755">
+<meta name="msapplication-config" content="https://browserleaks.com/browserconfig.xml?v=59281755">
+</head>
+<body spellcheck="false"><div id="logo" class="n-640"><a href="/" title="Home" tabindex="-1"><strong>BrowserLeaks</strong></a></div>
+
+<nav aria-haspopup="true">
+<div id="nav">
+  <div id="nav-pin" class="n-640">
+    <form name="nav-pin-form" id="nav-pin-form" method="POST" action="/geo" onsubmit="return false">
+    <input type="submit" id="nav-pin-submit" name="nav-pin-submit" value="1" title="Toggle Menu">
+    </form>
+  </div>
+  <div id="nav-hover">
+    <div id="nav-menu">
+      <input type="checkbox" autocomplete="off" aria-label="Menu" title="Menu">
+      <span class="nav-hb"></span><span class="nav-hb"></span><span class="nav-hb"></span>
+      <ul>
+      <li><div class="nav-close"></div></li>
+        <li class="margin"><a class="ico-index" href="/" title="Home Page" rel="nofollow">Home Page</a></li>
+        <li><a class="ico-ip" href="/ip" title="What Is My IP Address">IP Address</a></li>
+        <li><a class="ico-javascript" href="/javascript" title="JavaScript Browser Information">JavaScript</a></li>
+        <li><a class="ico-webrtc" href="/webrtc" title="WebRTC Leak Test">WebRTC Leak Test</a></li>
+        <li><a class="ico-canvas" href="/canvas" title="HTML5 Canvas Fingerprinting">Canvas Fingerprint</a></li>
+        <li><a class="ico-webgl" href="/webgl" title="WebGL Browser Report">WebGL Report</a></li>
+        <li><a class="ico-fonts" href="/fonts" title="Font Fingerprinting">Font Fingerprinting</a></li>
+        <li><a class="this ico-geo" href="/geo" title="HTML5 Geolocation API and Reverse Geocoding" rel="nofollow">Geolocation API</a></li>
+        <li><a class="ico-features" href="/features" title="HTML5 Features Detection">Features Detection</a></li>
+        <li><a class="ico-tls" href="/tls" title="SSL/TLS Client Security Test">SSL/TLS Client Test</a></li>
+        <li class="margin-less"><a class="ico-proxy" href="/proxy" title="Content Filtering Proxy Software Detection">Content Filters</a></li>
+        <li class="margin-less"><a class="ico-more" href="https://browserleaks.com/#more" title="More Tools" rel="nofollow">More Tools</a></li>
+        <li><a class="ico-settings" href="/settings" title="Site Settings" rel="nofollow">Settings</a></li>
+      </ul>
+      <div class="nav-dark"></div>
+    </div>
+  </div>
+</div>
+</nav>
+
+<div class="responsive-header responsive-show">
+  <div class="responsive-home"><a href="/" title="Home"><div class="svg-icon svg-fingerprint"></div></a></div>
+  <div class="responsive-search"><div class="responsive-search-icon svg-icon svg-search"></div></div>
+  <div class="responsive-search-form n"><input type="search" class="responsive-search-input" maxlength="512" aria-label="Enter IP Address or Domain Name" placeholder="Enter IP Address or Domain Name"><input type="button" class="responsive-search-submit n" value=""></div>
+</div>
+
+<div id="content">
+  <div id="lookup-form" class="n-640">
+    <form action="/search" method="POST">
+    <ul>
+      <li><input tabindex="2" aria-label="IP Address Lookup" placeholder="IP Address Lookup" type="text" id="lookup-input" class="placeholder" name="data" title="Enter IP Address or Domain Name" maxlength="512"></li>
+      <li><input tabindex="3" type="submit" id="lookup-submit" class="svg-search" name="lookup-submit" value="" title="Submit"></li>
+    </ul>
+    </form>
+  </div>
+
+<header><h1><a href="/geo">Geolocation API</a></h1></header>
+
+<div class="warn noscript">JavaScript Disabled</div>
+
+<p>The Geolocation API provides websites with a high-level interface that enables them to query physical location information, such as latitude and longitude, potentially compromising the user's anonymity. This page will check if the Geolocation API works in your browser, display all retrievable data, and ensure that websites cannot access the API without your explicit permission.</p>
+
+<table class="script nxmrg">
+<tbody id="geo-perm">
+  <tr class="thead"><td colspan="2"><h3>Permissions API</h3></td></tr>
+  <tr>
+    <td>Origin Permissions</td>
+    <td id="geo-orig">
+      <div id="orig-granted" class="n"><span class="true"></span> "granted" – you allow browserleaks.com to request your location</div>
+      <div id="orig-prompt" class="n"><span class="unknown">?</span> "prompt" – you ask when browserleaks.com tries to request your location</div>
+      <div id="orig-denied" class="n"><span class="false">�</span> "denied" – you don't allow browserleaks.com to request your location</div>
+    </td>
+  </tr>
+  <tr>
+    <td>Global Permissions</td>
+    <td id="geo-glob">
+      <div id="glob-granted" class="n"><span class="true"></span> "granted" – you allow all third-party websites to request your location</div>
+      <div id="glob-prompt" class="n"><span class="unknown">?</span> "prompt" – you ask when third-party websites try to request your location</div>
+      <div id="glob-denied" class="n"><span class="false">�</span> "denied" – you don't allow third-party websites to request your location</div>
+    </td>
+  </tr>
+</tbody>
+<tbody>
+  <tr class="thead"><td colspan="2"><h3>Geolocation API</h3></td></tr>
+  <tr>
+    <td>API Status</td>
+    <td id="geo-detect">
+      <div id="geo-true" class="n"><span class="true"></span>Your browser supports Geolocation API</div><div id="geo-false" class="noscript"><span class="false ">�</span> Your browser doesn't support Geolocation API</div>
+    </td>
+  </tr>
+  <tr>
+    <td>watchPosition</td>
+    <td>
+      <label class="pointer dot"><input id="geo-watch-button" class="pointer" name="geo-watch-button" type="checkbox"> Watch Position  is <span id="geo-watch-status">not active</span></label>
+      <div id="geo-watch-load" class="load-div n"></div>
+      <span id="geo-watch-hint" class="row-tag n"> (geolocation is updating as it changes)</span>
+    </td>
+  </tr>
+  <tr>
+    <td>getCurrentPosition</td>
+    <td id="geo-update-row" class="more">
+      <div class="more-container">
+        <button id="geo-update-button" class="more-button-solo">Get Current Position</button>
+      </div>
+    </td>
+  </tr>
+</tbody>
+<tbody id="geo-content" class="n">
+  <tr class="thead"><td colspan="2" class="relative"><h3>Geolocation Data</h3> <button data-html2canvas-ignore="" id="geo-swap" class="xref">raw values</button></td></tr>
+  <tr><td title="timestamp">Cache Age</td><td id="timestamp" class="geo-data"></td></tr>
+  <tr><td title="coords.latitude">Latitude</td><td id="latitude" class="geo-data"></td></tr>
+  <tr><td title="coords.longitude">Longitude</td><td id="longitude" class="geo-data"></td></tr>
+  <tr><td title="coords.accuracy">Accuracy</td><td id="accuracy" class="geo-data"></td></tr>
+  <tr><td title="coords.altitude">Altitude</td><td id="altitude" class="geo-data"></td></tr>
+  <tr><td title="coords.altitudeAccuracy">Altitude Accuracy</td><td id="altitudeAccuracy" class="geo-data"></td></tr>
+  <tr><td title="coords.heading">Heading</td><td id="heading" class="geo-data"></td></tr>
+  <tr><td title="coords.speed">Speed</td><td id="speed" class="geo-data"></td></tr>
+  <tr><td>Reverse Geocoding</td><td id="geo-reverse"></td></tr>
+</tbody>
+</table>
+
+<div id="geo-warn" class="n"></div>
+<div class="map-warn n info">Loading maps has been disabled by <a href="/settings" rel="nofollow" title="Settings">Privacy Settings</a>. <button data-html2canvas-ignore="" id="map-button">Show Map</button></div>
+<div id="map-canvas" class="n"></div>
+
+<h3 class="section" id="how-geolocation-api-works" name="how-geolocation-api-works"><a href="#how-geolocation-api-works" title="Click to expand">How Geolocation API Works</a></h3>
+<div class="noscript">
+  <p>The Geolocation API allows websites to perform «one-shot» location queries (getCurrentPosition) or track the user's heading and speed with multiple position updates (watchPosition).</p>
+  <p>Common sources of location information include the Global Positioning System (GPS), as well as location inferred from network signals such as IP address, RFID, WiFi and Bluetooth MAC addresses, and GSM/CDMA cell IDs, along with user input.</p>
+  <p>For devices without special sensors (e.g. a desktop computer with a wired connection), HTML5 Geolocation will match the IP address location (GeoIP). If you change the IP country using a VPN or proxy, the Geolocation API will display your location based on the new IP.</p>
+</div>
+
+<h3 class="section nohistory" id="further-reading" name="further-reading"><a href="#further-reading" title="Click to expand">Further Reading</a></h3>
+<div class="noscript">
+<ul class="list">
+  <li><a href="https://w3c.github.io/geolocation-api/" rel="noopener" target="_blank">Geolocation API Specification – W3C</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API/Using_the_Geolocation_API" rel="noopener" target="_blank">Using the Geolocation API – MDN</a></li>
+</ul>
+</div>
+
+<div id="external"></div>
+<link rel="stylesheet" href="css/leaflet.css">
+<script src="js/leaflet.js"></script>
+<script src="js/geo.js"></script>
+
+<h3 data-html2canvas-ignore="" id="comments"><span id="comments-title">Leave a Comment</span> (79)<span id="comments-nojs" class="noscript"></span></h3>
+<div data-html2canvas-ignore="" id="remark42"></div>
+
+<footer><div id="footer"><div>BrowserLeaks � 2011-2025 All Right Reserved<br><span id="bdo"><bdo dir="rtl">m<!-- ` -->oc<span>.sk<!-- ` -->ae</span>lr<!-- ` -->es<span>wor<!-- ` -->b@t</span>ca<!-- ` -->tn<span>oc<!-- ` -->:ot</span>lia<!-- ` -->m</bdo></span></div></div></footer>
+
+</div>
+
+
+</body></html>
